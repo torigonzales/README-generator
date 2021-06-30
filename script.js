@@ -13,12 +13,12 @@ inquirer.prompt(
         {
             type:'input',
             message:'How did you install your app?',
-            name: 'instillation',
+            name: 'installation',
             validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
         },
         {
             type:'input',
-            message:'Instillation Instructions?',
+            message:'Installation Instructions?',
             name: 'instructions',
             validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
 
@@ -46,5 +46,19 @@ inquirer.prompt(
 
         }  
     ]
-).then()
+).then(({
+    title,
+    installation,
+    instructions,
+    license,
+    git,
+    email
 
+})=>{
+const template = '# ${title}
+
+*[Installation](#installation)
+*[Usage]{#usage}
+
+}
+)
