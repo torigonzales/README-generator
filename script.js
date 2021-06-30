@@ -5,24 +5,18 @@ inquirer.prompt(
     [
         {
             type: 'input',
-            message='Whats the project title?',
+            message:'Whats the project title?',
             name:'title',
             validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
             
         },
         {
             type:'input',
-            message:'How did you install your app?',
+            message:'Installation Instructions',
             name: 'installation',
             validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
         },
-        {
-            type:'input',
-            message:'Installation Instructions?',
-            name: 'instructions',
-            validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
-
-        },
+       
         {
             type:'input',
             message:'What licenses were used?',
@@ -46,19 +40,17 @@ inquirer.prompt(
 
         }  
     ]
-).then(({
-    title,
-    installation,
-    instructions,
-    license,
-    git,
-    email
+).then((answers)=>{
 
-})=>{
-const template = '# ${title}
+})
 
+
+const template = `# ${title}
+
+*[Title](#title)
 *[Installation](#installation)
 *[Usage]{#usage}
 
+
 }
-)
+)`
