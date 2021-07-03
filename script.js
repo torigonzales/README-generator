@@ -89,13 +89,16 @@ ${license}
 
 #Contact
 *GitHub :${git}
-*Linkedin :${linkedin}
-*E-mail :${email}
+*E-mail :${email}`;
 
+//readme function using fs
+createNewFile(title,template);
 
-
-
-
-
+function createNewFile(filename,template){
+    fs.writeFile(`./${fileName.toLowerCase().split('').join('')}.nd`,data,(err)=>{
+        if(err){
+            console.log(err)
+        }
+        console.log('Your README has been generated');
+    })
 }
-)`
