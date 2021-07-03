@@ -12,16 +12,38 @@ inquirer.prompt(
         },
         {
             type:'input',
-            message:'Installation Instructions',
+            message:'How was the application installed?',
             name: 'installation',
             validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
         },
        
         {
             type:'input',
-            message:'What licenses were used?',
+            message:'Installation instructions:',
+            name: 'instructions',
+            validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
+
+        },
+        {
+            type:'input',
+            message:'Credits?',
+            name: 'instructions',
+            validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
+
+
+        },
+        {
+            type:'input',
+            message:'How do you use the application?',
+            name: 'usage',
+            validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
+
+        },
+        {
+            type:'input',
+            message:'Licenses used?',
             name: 'license',
-            choices:['ISC'],
+            choice:['The MIT license'],
             validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
 
         },
@@ -47,9 +69,32 @@ inquirer.prompt(
 
 const template = `# ${title}
 
-*[Title](#title)
 *[Installation](#installation)
-*[Usage]{#usage}
+*[Usage](#usage)
+*[Contribution](#contribution)
+*[Credits](#credits)
+*[Licenses](#license)
+#Installation
+${installation}
+##Usage
+${usage}
+##Contribution
+${contribution}
+###Instructions
+${insttructions}
+##Credits
+${credits}
+##License
+${license}
+
+#Contact
+*GitHub :${git}
+*Linkedin :${linkedin}
+*E-mail :${email}
+
+
+
+
 
 
 }
