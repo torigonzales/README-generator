@@ -43,7 +43,7 @@ inquirer.prompt(
             type:'input',
             message:'Licenses used?',
             name: 'license',
-            choice:['The MIT license'],
+            choice:['MIT','Apache','None'],
             validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
 
         },
