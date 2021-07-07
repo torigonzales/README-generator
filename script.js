@@ -27,7 +27,7 @@ inquirer.prompt(
         {
             type:'input',
             message:'Credits?',
-            name: 'instructions',
+            name: 'credits',
             validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
 
 
@@ -64,41 +64,41 @@ inquirer.prompt(
     ]
 ).then((answers)=>{
 
+    
+    const template = `# ${answers.title}
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contribution](#contribution)
+* [Credits](#credits)
+* [Licenses](#license)
+# Installation
+${answers.installation}
+## Usage
+${answers.usage}
+## Contribution
+${answers.contribution}
+### Instructions
+${answers.instructions}
+## Credits
+${answers.credits}
+## License
+${answers.license}
+
+# Contact
+* GitHub :${answers.git}
+* E-mail :${answers.email}`;
+
+createNewFile(answers.title,template);
+
 })
 
 
-const template = `# ${title}
-
-*[Installation](#installation)
-*[Usage](#usage)
-*[Contribution](#contribution)
-*[Credits](#credits)
-*[Licenses](#license)
-#Installation
-${installation}
-##Usage
-${usage}
-##Contribution
-${contribution}
-###Instructions
-${insttructions}
-##Credits
-${credits}
-##License
-${license}
-
-#Contact
-*GitHub :${git}
-*E-mail :${email}`;
-
-//readme function using fs
-createNewFile(title,template);
-
-function createNewFile(filename,template){
-    fs.writeFile(`./${fileName.toLowerCase().split('').join('')}.nd`,data,(err)=>{
+function createNewFile(fileName,template){
+    fs.writeFile(`./${fileName.toLowerCase().split('').join('')}.md`,template,(err)=>{
         if(err){
             console.log(err)
         }
-        console.log('Your README has been generated');
+        console.log('Your README has been generated!');
     })
 }
