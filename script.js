@@ -40,10 +40,10 @@ inquirer.prompt(
 
         },
         {
-            type:'input',
+            type:'list',
             message:'Licenses used?',
             name: 'license',
-            choice:['MIT','Apache','None'],
+            choices:['MIT','Apache','None'],
             validate: (value)=>{ if(value){return true} else {return 'I need a value to continue'}},
 
         },
